@@ -18,13 +18,17 @@ let prevPath = null;
 Object.keys(letterAnimations)
     .forEach((key, idx) => {
         const letter = letterAnimations[key];
-        let x = 0, y = 0;
+        let baseX = 0, baseY = 0;
         if (prevPath) {
-            x = prevPath.node().getBoundingClientRect().right + 10 - svgPos.left;
+            baseX = prevPath.node().getBoundingClientRect().right + 10 - svgPos.left;
         }
+        let pathd = letter.path.map(([x, y], idx) => {
+            const cmd = idx === 0 ? 'M' : 'L';
+            return `${cmd}${baseX+x},${baseY+y}`;
+        });
         prevPath = svg
             .append('path')
-            .attr('d', `M${x},${y} ` + letter.path.join(' '));
+            .attr('d', pathd.concat('Z').join(' '));
     });
 
 // window.d3 = d3;
