@@ -1,0 +1,27 @@
+{
+  "name": "awesome-letter-animation",
+  "version": "0.0.1",
+  "description": "Awesome letter animation!",
+  "main": "dist/bundle.js",
+  "scripts": {
+    "build": "webpack",
+    "build-dev": "webpack --watch --debug --devtool"
+  },
+  "keywords": [
+    "animation"
+  ],
+  "author": "adventure-yunfei",
+  "license": "MIT",
+  "dependencies": {
+    "d3": "^4.2.7"
+  },
+  "devDependencies": {
+    "css-loader": "^0.25.0",
+    "less-loader": "^2.2.3",
+    "style-loader": "^0.13.1",
+    "ts-loader": "^0.9.5",
+    "typescript": "^2.0.3",
+    "typings": "^1.4.0",
+    "webpack": "^1.13.2"
+  }
+}
