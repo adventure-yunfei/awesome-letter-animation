@@ -1,34 +1,27 @@
-import letterAnimations from './letter-animations/letterAnimations';
 const d3: any = require('d3');
-
-const
-    letter_a = letterAnimations.a,
-    letter_m = letterAnimations.m;
+import letterConfigs from './letterConfigs';
+import Letter from './Letter';
 
 const svg = d3
     .select('body')
+    .style('background-color', 'black')
     .append('svg')
     .attr('width', 1800)
-    .attr('height', 800)
-    .style('border', '1px solid gray');
+    .attr('height', 800);
 
-const letterWidth = 120;
-const svgPos = svg.node().getBoundingClientRect();
-let prevPath = null;
-Object.keys(letterAnimations)
+let prevLetter: Letter = null;
+let offset = {x: 300, y: 200};
+Object.keys(letterConfigs)
     .forEach((key, idx) => {
-        const letter = letterAnimations[key];
+        const letterCfg = letterConfigs[key];
         let baseX = 0, baseY = 0;
-        if (prevPath) {
-            baseX = prevPath.node().getBoundingClientRect().right + 10 - svgPos.left;
+        if (prevLetter) {
+            baseX = prevLetter.getBoundary().right + 10;
         }
-        let pathd = letter.path.map(([x, y], idx) => {
-            const cmd = idx === 0 ? 'M' : 'L';
-            return `${cmd}${baseX+x},${baseY+y}`;
-        });
-        prevPath = svg
-            .append('path')
-            .attr('d', pathd.concat('Z').join(' '));
+        const letter = new Letter(letterCfg.path);
+        letter.appendNodes(svg, offset);
+        const boundary = letter.getBoundary();
+        offset.x += boundary.right + 10;
     });
 
-// window.d3 = d3;
+Letter.animateLetters();

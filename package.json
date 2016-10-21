@@ -13,10 +13,12 @@
   "author": "adventure-yunfei",
   "license": "MIT",
   "dependencies": {
+    "animejs": "^1.1.1",
     "d3": "^4.2.7"
   },
   "devDependencies": {
     "css-loader": "^0.25.0",
+    "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "style-loader": "^0.13.1",
     "ts-loader": "^0.9.5",
