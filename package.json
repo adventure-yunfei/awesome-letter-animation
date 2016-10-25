@@ -5,7 +5,7 @@
   "main": "dist/bundle.js",
   "scripts": {
     "build": "webpack",
-    "build-dev": "webpack --watch --debug --devtool"
+    "build-dev": "webpack --watch --d"
   },
   "keywords": [
     "animation"
