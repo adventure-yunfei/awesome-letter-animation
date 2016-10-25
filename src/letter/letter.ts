@@ -50,8 +50,8 @@ function _appendLinePath(letterCfg: LetterConfig, $svg, offset = {x: 0, y: 0}) {
 
 export function appendLetterNodes(word: string, $svg, offset = {x: 0, y: 0}) {
     const letterCfg = letterConfigs[word];
-    _appendFillPath(letterCfg, $svg, offset);
     _appendLinePath(letterCfg, $svg, offset);
+    _appendFillPath(letterCfg, $svg, offset);
 }
 
 export function animateLetters() {

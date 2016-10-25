@@ -56,7 +56,8 @@
 	    .append('svg')
 	    .attr('width', 1800)
 	    .attr('height', 800);
-	letter_1.buildAwesomeLetterAnimation('Iamhere', svg, { x: 200, y: 200 });
+	letter_1.buildAwesomeLetterAnimation('i am here', svg, { x: 200, y: 200 });
+	// buildAwesomeLetterAnimation('中   二', svg, {x: 200, y: 200});
 
 
 /***/ },
@@ -17081,8 +17082,8 @@
 	function appendLetterNodes(word, $svg, offset) {
 	    if (offset === void 0) { offset = { x: 0, y: 0 }; }
 	    var letterCfg = letterConfigs_1.default[word];
-	    _appendFillPath(letterCfg, $svg, offset);
 	    _appendLinePath(letterCfg, $svg, offset);
+	    _appendFillPath(letterCfg, $svg, offset);
 	}
 	exports.appendLetterNodes = appendLetterNodes;
 	function animateLetters() {
@@ -17212,6 +17213,7 @@
 
 	"use strict";
 	var letterConfigs = {
+	    // alphabet
 	    'a': {
 	        path: [[0, 48], [0, 68], [16, 84], [96, 84], [112, 68], [112, 16], [96, 0], [20, 0], [0, 20], [92, 20], [92, 64], [20, 64], [20, 52], [60, 52], [80, 32], [16, 32], [0, 48]]
 	    },
@@ -17256,7 +17258,7 @@
 	    },
 	    'o': {
 	        path: [[16, 0], [84, 0], [100, 16], [100, 68], [88, 84], [16, 84], [0, 68], [0, 16], [16, 0], [20, 20], [20, 64], [80, 64], [80, 20], [20, 20], [16, 0]],
-	        invisibleLines: [9, 14] // 指定路径中的某个点的索引值，以此点为终点的线不可见
+	        invisibleLines: [9, 14]
 	    },
 	    'p': {
 	        path: [[0, 84], [0, 0], [74, 0], [90, 16], [90, 36], [74, 52], [20, 52], [20, 32], [70, 32], [70, 20], [20, 20], [20, 84], [0, 84]]
@@ -17290,6 +17292,20 @@
 	    },
 	    'z': {
 	        path: [[20, 0], [0, 20], [64, 20], [0, 84], [84, 84], [104, 64], [40, 64], [104, 0], [20, 0]]
+	    },
+	    // customize words
+	    ' ': {
+	        path: [[0, 0], [80, 84], [0, 0]],
+	        invisibleLines: [1, 2]
+	    },
+	    '中': {
+	        path: [[0, 14], [112, 14], [112, 54], [0, 54], [0, 14], [10, 24], [10, 44], [102, 44], [102, 24], [10, 24], [0, 14],
+	            [46, 14], [46, 0], [66, 0], [66, 84], [46, 84], [46, 14], [0, 14]],
+	        invisibleLines: [5, 10]
+	    },
+	    '二': {
+	        path: [[20, 24], [20, 14], [92, 14], [92, 24], [20, 24], [0, 64], [112, 64], [112, 74], [0, 74], [0, 64], [20, 24]],
+	        invisibleLines: [5, 10]
 	    }
 	};
 	Object.defineProperty(exports, "__esModule", { value: true });

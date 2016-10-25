@@ -8,4 +8,5 @@ const svg = d3
     .attr('width', 1800)
     .attr('height', 800);
 
-buildAwesomeLetterAnimation('Iamhere', svg, {x: 200, y: 200});
+buildAwesomeLetterAnimation('i am here', svg, {x: 200, y: 200});
+// buildAwesomeLetterAnimation('中   二', svg, {x: 200, y: 200});

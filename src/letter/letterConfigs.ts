@@ -1,9 +1,10 @@
 export interface LetterConfig {
-    path: number[][],
-    invisibleLines?: number[]
+    path: [number, number][], // path points, finishing the figure at one stroke
+    invisibleLines?: number[] // speficy index of some path points. Path line ending with that will be invisible (e.g. letter "O", to finish it at one stroke, there is an invisible line connecting from outside to inside)
 }
 
 const letterConfigs: {[word: string]: LetterConfig} = {
+    // alphabet
     'a': {
         path: [[0, 48], [0, 68], [16, 84], [96, 84], [112, 68], [112, 16], [96, 0], [20, 0], [0, 20], [92, 20], [92, 64], [20, 64], [20, 52], [60, 52], [80, 32], [16, 32], [0, 48]]
     },
@@ -48,7 +49,7 @@ const letterConfigs: {[word: string]: LetterConfig} = {
     },
     'o': {
         path: [[16, 0], [84, 0], [100, 16], [100, 68], [88, 84], [16, 84], [0, 68], [0, 16], [16, 0], [20, 20], [20, 64], [80, 64], [80, 20], [20, 20], [16, 0]],
-        invisibleLines: [9, 14] // 指定路径中的某个点的索引值，以此点为终点的线不可见
+        invisibleLines: [9, 14]
     },
     'p': {
         path: [[0, 84], [0, 0], [74, 0], [90, 16], [90, 36], [74, 52], [20, 52], [20, 32], [70, 32], [70, 20], [20, 20], [20, 84], [0, 84]]
@@ -82,6 +83,21 @@ const letterConfigs: {[word: string]: LetterConfig} = {
     },
     'z': {
         path: [[20, 0], [0, 20], [64, 20], [0, 84], [84, 84], [104, 64], [40, 64], [104, 0], [20, 0]]
+    },
+
+    // customize words
+    ' ': { // empty
+        path: [[0, 0], [80, 84], [0, 0]],
+        invisibleLines: [1, 2]
+    },
+    '中': {
+        path: [[0, 14], [112, 14], [112, 54], [0, 54], [0, 14], [10, 24], [10, 44], [102, 44], [102, 24], [10, 24], [0, 14],
+            [46, 14], [46, 0], [66, 0], [66, 84], [46, 84], [46, 14], [0, 14]],
+        invisibleLines: [5, 10]
+    },
+    '二': {
+        path: [[20, 24], [20, 14], [92, 14], [92, 24], [20, 24],  [0, 64], [112, 64], [112, 74], [0, 74], [0, 64], [20, 24]],
+        invisibleLines: [5, 10]
     }
 };
 
