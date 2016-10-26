@@ -1,3 +1,4 @@
+declare var require: any;
 import letterConfigs, {LetterConfig} from './letterConfigs';
 const anime: any = require('animejs');
 const d3: any = require('d3');

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "build-dev": "webpack --watch --d",
-    "postinstall": "typings install && npm run build"
+    "postinstall": "npm run build"
   },
   "keywords": [
     "animation"
