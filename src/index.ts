@@ -1,4 +1,5 @@
 declare var require: any;
+declare var module: any;
 const d3: any = require('d3');
 import {buildAwesomeLetterAnimation} from './letter/letter';
 
@@ -24,6 +25,4 @@ awesomeLetterAnimation['_testHello'] = function () {
     // buildAwesomeLetterAnimation('中   二', svg, {x: 200, y: 200});
 };
 
-window['awesomeLetterAnimation'] = awesomeLetterAnimation;
-
-export default awesomeLetterAnimation;
+module.exports = awesomeLetterAnimation;

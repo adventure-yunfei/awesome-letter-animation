@@ -2,11 +2,12 @@
   "name": "awesome-letter-animation",
   "version": "0.0.1",
   "description": "Awesome letter animation!",
-  "main": "dist/bundle.js",
+  "main": "dist/bundle.module.js",
   "scripts": {
     "build": "webpack",
+    "build-browser": "webpack --output-library awesomeLetterAnimation --output-library-target var --output-filename bundle.browser.js",
     "build-dev": "webpack --watch --d",
-    "postinstall": "npm run build"
+    "postinstall": "npm run build && npm run build-browser"
   },
   "keywords": [
     "animation"
@@ -18,13 +19,8 @@
     "d3": "^4.2.7"
   },
   "devDependencies": {
-    "css-loader": "^0.25.0",
-    "less": "^2.7.1",
-    "less-loader": "^2.2.3",
-    "style-loader": "^0.13.1",
     "ts-loader": "^0.9.5",
     "typescript": "^2.0.3",
-    "typings": "^1.4.0",
     "webpack": "^1.13.2"
   }
 }
