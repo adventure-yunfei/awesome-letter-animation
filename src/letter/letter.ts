@@ -55,7 +55,7 @@ export function appendLetterNodes(word: string, $svg, offset = {x: 0, y: 0}) {
     _appendFillPath(letterCfg, $svg, offset);
 }
 
-export function animateLetters() {
+export function animateLetters(callback: Function = null) {
     function getTranslate(linePathNode: Element) : {translateX: number, translateY: number} {
         function getLinePoints(linePathNode: Element) {
             const getPoint = (pointStr: string) => {
@@ -125,6 +125,8 @@ export function animateLetters() {
                         opacity: 0,
                         duration: 2000
                     });
+
+                    callback();
                 }
             });
         }
@@ -158,7 +160,7 @@ export function getLetterBoundary(word: string) {
     };
 }
 
-export function buildAwesomeLetterAnimation(str: string, $svg, offset: {x: number, y: number} = null) {
+export function buildAwesomeLetterAnimation(str: string, $svg, offset: {x: number, y: number} = null, callback: Function = null) {
     let prevWord = null;
     offset = offset || {x: 0, y: 0};
     str.toLowerCase().split('').forEach(word => {
@@ -170,5 +172,5 @@ export function buildAwesomeLetterAnimation(str: string, $svg, offset: {x: numbe
         prevWord = word;
     });
 
-    animateLetters();
+    animateLetters(callback);
 }
