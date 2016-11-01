@@ -1,4 +1,4 @@
 node_modules/
 typings/
 .idea/
-/dist/
+/dist/bundle.module.js

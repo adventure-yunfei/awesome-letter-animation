@@ -7,7 +7,7 @@
     "build": "webpack",
     "build-browser": "webpack --output-library awesomeLetterAnimation --output-library-target var --output-filename bundle.browser.js",
     "build-dev": "webpack --watch --d",
-    "postinstall": "npm run build && npm run build-browser"
+    "postinstall": "npm run build"
   },
   "keywords": [
     "animation"
